@@ -30,8 +30,10 @@ public class TermBot {
 		
 		//JDABuilder builder = JDABuilder.createDefault(null);
 		
+		String Token = Config.getToken();
+		
 			DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(null);
-			builder.setToken("");
+			builder.setToken(Token);
 			builder.setStatus(OnlineStatus.ONLINE);
 			builder.setActivity(Activity.watching("Your Trustfactor :)"));
 			
