@@ -10,28 +10,37 @@ public class CommandListener extends ListenerAdapter {
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
 		
-		String message = event.getMessage().getContentDisplay();
+		if(event.getAuthor().isBot()) {
+			return;
+		}else {
 		
-		System.out.println(message);
+			String message = event.getMessage().getContentDisplay();
 		
-		if(event.isFromType(ChannelType.TEXT)) {
-			TextChannel channel = event.getTextChannel();
+			System.out.println(message);
+		
+			if(event.isFromType(ChannelType.TEXT)) {
+				TextChannel channel = event.getTextChannel();
 			
-			//!test arg0 arg1 arg2
-			if(message.startsWith("-")) {
-				String[] args = message.substring(1).split(" ");
-				
-				if(args.length == 1) {
-					if (args[0].equalsIgnoreCase("rep")) {
-						channel.sendMessage("-rep added for " + event.getMember().getAsMention() + "!").queue();
+				//	!test arg0 arg1 arg2
+				if(message.startsWith("-")) {
+					String[] args = message.substring(1).split(" ");
+					if(args.length > 0) {
+						if (args[0].equalsIgnoreCase("rep")) {
+							
+							channel.sendMessage("-rep added for " + event.getMessage().getContentRaw().substring(5)).queue(); 
+							
+						}
 						
 					}
-				}
-			}
 				
+				}
+			
+			}
+		
 		}
 		
-		
 	}
-	
+		
 }
+	
+

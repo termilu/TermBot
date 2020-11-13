@@ -15,8 +15,11 @@ import termilu.termbot.listener.CommandListener;
 
 public class TermBot {
 
+	public static TermBot INSTANCE;
+	
 	public JDA jda;
 	public ShardManager shardMan;
+	private CommandManager cmdMan;
 	
 	public static void main(String[] args) {
 		try {
@@ -27,8 +30,7 @@ public class TermBot {
 	}
 
 	public TermBot() throws LoginException, IllegalArgumentException  {
-		
-		//JDABuilder builder = JDABuilder.createDefault(null);
+		INSTANCE = this;
 		
 		String Token = Config.getToken();
 		
@@ -36,6 +38,8 @@ public class TermBot {
 			builder.setToken(Token);
 			builder.setStatus(OnlineStatus.ONLINE);
 			builder.setActivity(Activity.watching("Your Trustfactor :)"));
+			
+			this.cmdMan = new CommandManager();
 			
 			builder.addEventListeners(new CommandListener());
 			
@@ -72,6 +76,11 @@ public class TermBot {
 			}
 			
 		}).start();
+	}
+	
+	
+	public CommandManager getCmdMan() {
+		return cmdMan;
 	}
 	
 }
