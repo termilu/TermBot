@@ -1,9 +1,12 @@
 package termilu.termbot.listener;
 
+import java.lang.reflect.Member;
+
 import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import termilu.termbot.TermBot;
 
 public class CommandListener extends ListenerAdapter {
 
@@ -22,25 +25,31 @@ public class CommandListener extends ListenerAdapter {
 				TextChannel channel = event.getTextChannel();
 			
 				//	!test arg0 arg1 arg2
-				if(message.startsWith("-")) {
+				if(message.startsWith("-")) {									//-rep
+					String[] args = message.substring(1).split(" ");
+					if(args.length > 0) {
+						//if (args[0].equalsIgnoreCase("rep")) {
+						if(!TermBot.INSTANCE.getCmdMan().perform(args[0], (Member) event.getMember(), channel, event.getMessage())) {
+							
+							channel.sendMessage("Unbekannter Command").queue();
+							//channel.sendMessage("-rep added for " + event.getMessage().getContentRaw().substring(5)).queue(); 
+							//insert -rep implementation 
+						}
+					}
+				
+				}else if(message.startsWith("+")) {								//+rep
 					String[] args = message.substring(1).split(" ");
 					if(args.length > 0) {
 						if (args[0].equalsIgnoreCase("rep")) {
 							
-							channel.sendMessage("-rep added for " + event.getMessage().getContentRaw().substring(5)).queue(); 
-							
+							channel.sendMessage("+rep added for " + event.getMessage().getContentRaw().substring(5)).queue();
+							//insert +rep implementation
 						}
-						
 					}
-				
 				}
-			
 			}
-		
 		}
-		
 	}
-		
 }
 	
 
