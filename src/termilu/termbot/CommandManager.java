@@ -1,11 +1,13 @@
 package termilu.termbot;
 
-import net.dv8tion.jda.api.entities.Member;
 import java.util.concurrent.ConcurrentHashMap;
 
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import termilu.termbot.commands.ClearCommand;
+import termilu.termbot.commands.NegRep;
+import termilu.termbot.commands.PosRep;
 import termilu.termbot.commands.types.ServerCommand;
 
 public class CommandManager {
@@ -17,7 +19,8 @@ public class CommandManager {
 		this.commands = new ConcurrentHashMap<>();
 		
 		this.commands.put("clear", new ClearCommand());
-		
+		this.commands.put("rep", new NegRep());
+		this.commands.put("+rep", new PosRep());
 	}
 	
 	
@@ -32,4 +35,5 @@ public class CommandManager {
 		
 		return false;
 	}
+
 }

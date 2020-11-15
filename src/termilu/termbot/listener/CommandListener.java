@@ -28,24 +28,22 @@ public class CommandListener extends ListenerAdapter {
 				if(message.startsWith("-")) {									//-rep
 					String[] args = message.substring(1).split(" ");
 					if(args.length > 0) {
-						//if (args[0].equalsIgnoreCase("rep")) {
 						if(!TermBot.INSTANCE.getCmdMan().perform(args[0], (Member) event.getMember(), channel, event.getMessage())) {
 							
 							channel.sendMessage("Unbekannter Command").queue();
-							//channel.sendMessage("-rep added for " + event.getMessage().getContentRaw().substring(5)).queue(); 
-							//insert -rep implementation 
+					
 						}
 					}
 				
-				}else if(message.startsWith("+")) {								//+rep
-					String[] args = message.substring(1).split(" ");
-					if(args.length > 0) {
-						if (args[0].equalsIgnoreCase("rep")) {
+			//	}else if(message.startsWith("+")) {								//+rep
+			//		String[] args = message.substring(1).split(" ");
+			//		if(args.length > 0) {
+			//			if (args[0].equalsIgnoreCase("rep")) {
 							
-							channel.sendMessage("+rep added for " + event.getMessage().getContentRaw().substring(5)).queue();
+			//				channel.sendMessage("+rep added for " + event.getMessage().getContentRaw().substring(5)).queue();
 							//insert +rep implementation
-						}
-					}
+			//			}
+			//		}
 				}
 			}
 		}

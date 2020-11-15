@@ -82,5 +82,6 @@ public class TermBot {
 	public CommandManager getCmdMan() {
 		return cmdMan;
 	}
+
 	
 }
