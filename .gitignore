@@ -23,6 +23,10 @@
 hs_err_pid*
 
 
-TermBot/src/termilu/termbot/Config.*
+#--------------------------------------------------------------------------------------------------
 
-Config.*
+# Config files
+src/termilu/termbot/Config.*
+
+# Wait you're not supposed to read this
+/Easter-egg.txt
