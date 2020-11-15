@@ -1,6 +1,6 @@
 package termilu.termbot.listener;
 
-import java.lang.reflect.Member;
+import net.dv8tion.jda.api.entities.Member;
 
 import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.entities.TextChannel;
