@@ -1,0 +1,28 @@
+Hey! Welcome to the changelogs! No idea how you got here to begin with but while you're already here, 
+might aswell tell you about every single detail of every single bot version that has ever been worked on by me.
+Nah jk, I'm a lazy piece of shit that won't look into this .txt for months, can't expect me to list every single change here.
+Anyways, not quite sure why you're still here but lets go!
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+The Idea - v0 (pre 10.11.2020)
+Long story short, I was hanging out on a discord server playing league of legends with 4 of my friends. 
+One of them (A.) ran it down mid like the bronze 4 he is, so naturally another friend of mine (G.) started shittalking a little. Nothing big.
+All chill. Well, friend A. didn't really enjoy the trashtalk so he quickly muted him client-sided. 
+The admin of the server (@xSparfuchs) and I (@termilu) figured we needed some sort of Trustfactor score on the server, like csgo implemented years ago.
+After a few days I figured might aswell code one myself. Yeah. Great idea. Thanks me. :).
+
+
+The Start - v0.1 
+
+TO BE CONTINUED
+
+
+
+
+
+
+*** -vXX (16.11.2020)
+Implemented a -help command, tried to create -snipe command with DeleteListener but realized it's just not gonna happen now is it.
+Integrated OffsetDateTime time, started changelog.txt, tried my hands on a bunch of problems regarding not being able to read info from the messages
+that the bot just sent. Its 7:15am. Think I'm just gonna leave it for the day lol.

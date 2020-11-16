@@ -1,5 +1,6 @@
 package termilu.termbot.commands;
 
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +15,7 @@ import termilu.termbot.commands.types.ServerCommand;
 public class ClearCommand implements ServerCommand {
 
 	@Override
-	public void performCommand(Member m, TextChannel channel, Message message) {
+	public void performCommand(Member m, TextChannel channel, Message message, OffsetDateTime time) {
 		
 		if(m.hasPermission(channel, Permission.MESSAGE_MANAGE)) {      																//???????????? https://ci.dv8tion.net/job/JDA/javadoc/net/dv8tion/jda/api/entities/IPermissionHolder.html#hasPermission(net.dv8tion.jda.api.Permission...)
 			message.delete().queue();

@@ -1,5 +1,7 @@
 package termilu.termbot.commands;
 
+import java.time.OffsetDateTime;
+
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
@@ -9,7 +11,7 @@ import termilu.termbot.commands.types.ServerCommand;
 public class NegRep implements ServerCommand {
 
 	@Override
-	public void performCommand(Member m, TextChannel channel, Message message) {
+	public void performCommand(Member m, TextChannel channel, Message message, OffsetDateTime time) {
 		
 		if(m.hasPermission(channel, Permission.ADMINISTRATOR)) {
 			String[] args = message.getContentDisplay().split(" ");
@@ -30,7 +32,7 @@ public class NegRep implements ServerCommand {
 	//			channel.sendMessage("We don't rep bots around here aight?").queue();						
 			}else {
 				channel.sendMessage("Damn something went wrong, try again!").queue();							//Fail-Safe
-			}
+			}	
 		}
 	}
 }	

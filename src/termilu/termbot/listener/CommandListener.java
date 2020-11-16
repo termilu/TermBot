@@ -2,6 +2,8 @@ package termilu.termbot.listener;
 
 import net.dv8tion.jda.api.entities.Member;
 
+import java.time.OffsetDateTime;
+
 import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -23,12 +25,13 @@ public class CommandListener extends ListenerAdapter {
 		
 			if(event.isFromType(ChannelType.TEXT)) {
 				TextChannel channel = event.getTextChannel();
-			
+				OffsetDateTime time = event.getMessage().getTimeCreated();
+				
 				//	!test arg0 arg1 arg2
 				if(message.startsWith("-")) {									//-rep
 					String[] args = message.substring(1).split(" ");
 					if(args.length > 0) {
-						if(!TermBot.INSTANCE.getCmdMan().perform(args[0], (Member) event.getMember(), channel, event.getMessage())) {
+						if(!TermBot.INSTANCE.getCmdMan().perform(args[0], (Member) event.getMember(), channel, event.getMessage(), time)) {
 							
 							channel.sendMessage("Unbekannter Command").queue();
 					
@@ -44,6 +47,7 @@ public class CommandListener extends ListenerAdapter {
 							//insert +rep implementation
 			//			}
 			//		}
+					
 				}
 			}
 		}
